@@ -1,0 +1,106 @@
+<doctype! html>
+
+<html>
+<head>
+
+<title>
+heysynth
+</title>
+</head>
+<body>
+    <div id="aux" style=" color: blue; font-size: 33pt; white-space: pre-wrap; width: 500px; margin:auto; word-break: break-all; padding: 20px; overflow: wrap;">
+    	
+    		<script>
+    alert('This is a webpage synthesizer which synthesizes the word "Hey" with some variation');
+	(function (){
+	//audio context
+    var audio = new (window.AudioContext || window.webkitAudioContext)();
+	//make white noise... code clipped from "noisehack"
+	var bufferSize = 4096;
+	var whiteNoise = audio.createScriptProcessor(bufferSize, 1, 1);
+	whiteNoise.onaudioprocess = function(e) {
+    var output = e.outputBuffer.getChannelData(0);
+    for (var i = 0; i < bufferSize; i++) {
+        output[i] = Math.random() * 2 - 1;
+    	}
+	}
+	//make osc gains and filters
+	osc = audio.createOscillator();
+	gainO= audio.createGain();
+	gainN= audio.createGain();
+	filter1 = audio.createBiquadFilter();
+	filter2 = audio.createBiquadFilter();
+	filter3 = audio.createBiquadFilter();
+	filter1.type = "bandpass";
+	filter2.type = "bandpass";
+	filter3.type = "bandpass";
+
+	//params
+	/*var real = new Float32Array(10);
+	var imag = new Float32Array(10);
+	real[0] = 0;
+	imag[0] = 2;
+	real[1] = 1;
+	imag[1] = 5;
+	real[2] = 3;
+	imag[2] = 10;
+	real[3] = 7;
+	imag[3] = 5;
+	real[4] = 9;
+	imag[4] = 100;
+	real[5] = 9;
+	imag[5] = 5;
+	real[6] = 2;
+	imag[6] = 0;
+	var wave = audio.createPeriodicWave(real, imag);
+	osc.setPeriodicWave(wave);*/
+	osc.type= "sawtooth";
+	osc.start(0);
+
+	//connects
+	whiteNoise.connect(gainN);
+	osc.connect(gainO);
+	gainO.connect(filter1);
+	gainO.connect(filter2);
+	gainO.connect(filter3);
+	gainN.connect(filter1);
+	gainN.connect(filter2);
+	//gainN.connect(filter3);
+	filter1.connect(audio.destination);
+	filter2.connect(audio.destination);
+	filter3.connect(audio.destination);
+	//initialize vals
+	osc.frequency.value = 50;
+	gainO.gain.value = 0;
+	gainN.gain.value = 0;
+	filter1.frequency.value = 530;
+	filter2.frequency.value = 1700;
+	filter3.frequency.value = 1100;
+	filter1.Q.value = 10;
+	filter2.Q.value = 30;
+	filter3.Q.value = 17;
+	setInterval(function(){
+	var height = Math.random() - .5 * 50;
+	var i = audio.currentTime;
+	gainN.gain.setValueAtTime(0, i)
+	gainN.gain.linearRampToValueAtTime(.15, i + .25)
+	gainN.gain.exponentialRampToValueAtTime(0.03, i + .3)
+	gainN.gain.exponentialRampToValueAtTime(0.0000001, i + 1)
+	gainO.gain.setValueAtTime(0, i + .1)
+	gainO.gain.linearRampToValueAtTime(.7, i + .6)
+	gainO.gain.linearRampToValueAtTime(0.000001, i + 1.05)
+	filter1.frequency.setValueAtTime(530 + height, i + .001)
+	filter1.frequency.linearRampToValueAtTime(310 + height, i + 1.5)
+	filter2.frequency.setValueAtTime(1700 + height, i + .002)
+	filter2.frequency.linearRampToValueAtTime(1943 + height, i + 1.5)
+	filter3.frequency.setValueAtTime(1500 + height, i + .003)
+	filter3.frequency.linearRampToValueAtTime(2100 + height, i + 1.5)
+	osc.frequency.setValueAtTime(Math.random() * 300 + 10, i)
+	osc.frequency.linearRampToValueAtTime(Math.random() * 300 + 10, i + Math.random() * .5)
+	osc.frequency.linearRampToValueAtTime(Math.random() * 300 + 10, i + 1)
+	document.getElementById('aux').innerHTML += 'Hey              ';
+	}, 3000);
+	})();
+	</script>
+    </div>
+</body>
