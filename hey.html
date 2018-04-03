@@ -36,27 +36,8 @@ heysynth
 	filter3.type = "bandpass";
 
 	//params
-	/*var real = new Float32Array(10);
-	var imag = new Float32Array(10);
-	real[0] = 0;
-	imag[0] = 2;
-	real[1] = 1;
-	imag[1] = 5;
-	real[2] = 3;
-	imag[2] = 10;
-	real[3] = 7;
-	imag[3] = 5;
-	real[4] = 9;
-	imag[4] = 100;
-	real[5] = 9;
-	imag[5] = 5;
-	real[6] = 2;
-	imag[6] = 0;
-	var wave = audio.createPeriodicWave(real, imag);
-	osc.setPeriodicWave(wave);*/
 	osc.type= "sawtooth";
 	osc.start(0);
-
 	//connects
 	whiteNoise.connect(gainN);
 	osc.connect(gainO);
