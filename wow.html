@@ -48,29 +48,29 @@ wowwsynth
 	filter1.frequency.value = 360;
 	filter2.frequency.value = 640;
 	filter3.frequency.value = 280;
-	filter1.Q.value = 30	;
+	filter1.Q.value = 10	;
 	filter2.Q.value = 20;
-	filter3.Q.value = 27;
+	filter3.Q.value = 17;
 	setInterval(function(){
 	var height = Math.random() - .5 * 50;
 	var time2 = Math.random() * 0.4 + .1;
 	var time3 = Math.random() * 0.4 + .6;
 	var i = audio.currentTime;
 	gainO.gain.setValueAtTime(0, i + .05)
-	gainO.gain.linearRampToValueAtTime(.7, i + time2)
+	gainO.gain.linearRampToValueAtTime(.85, i + time2)
 	gainO.gain.linearRampToValueAtTime(0.001, i + time3)
-	filter1.frequency.setValueAtTime(360 + height, i + .001)
+	filter1.frequency.setValueAtTime(260 + height, i + .001)
 	filter2.frequency.setValueAtTime(640 + height, i + .002)
 	filter3.frequency.setValueAtTime(280 + height, i + .003)
-	filter1.frequency.linearRampToValueAtTime(750 + height, i + time2)
-	filter2.frequency.linearRampToValueAtTime(1240 + height, i + time2)
+	filter1.frequency.linearRampToValueAtTime(800 + height, i + time2)
+	filter2.frequency.linearRampToValueAtTime(1340 + height, i + time2)
 	filter3.frequency.linearRampToValueAtTime(190 + height, i + time2)
-	filter1.frequency.linearRampToValueAtTime(360 + height, i + time3)
+	filter1.frequency.linearRampToValueAtTime(160 + height, i + time3)
 	filter2.frequency.linearRampToValueAtTime(640 + height, i + time3)
 	filter3.frequency.linearRampToValueAtTime(280 + height, i + time3)
 	osc.frequency.setValueAtTime(Math.random() * 500 + 10, i)
 	osc.frequency.linearRampToValueAtTime(Math.random() * 200 + 10, i + Math.random() * .6)
-	osc.frequency.linearRampToValueAtTime(Math.random() * 300 + 10, i + 1)
+	osc.frequency.linearRampToValueAtTime(Math.random() * 100 + 10, i + 1)
 	// a few of these variables changed on 4-4-18
 	document.getElementById('aux').innerHTML += 'wow                       ';
 	}, 3000);
