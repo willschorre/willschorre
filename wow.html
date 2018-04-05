@@ -9,10 +9,12 @@ wowwsynth
 </head>
 <body>
     <div id="aux" style=" color: blue; font-size: 33pt; white-space: pre-wrap; width: 500px; margin:auto; word-break: break-all; padding: 20px; overflow: wrap;">
+
+    	<button onclick="play()">DoIt</button>
     	
     		<script>
     alert('This is a webpage synthesizer which synthesizes the word "wow" with some variation');
-	(function (){
+	(function play(){
 	//audio context
     var audio = new (window.AudioContext || window.webkitAudioContext)();
 	//make white noise... code clipped from "noisehack"
