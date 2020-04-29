@@ -1,0 +1,23 @@
+---
+layout: page
+display: 'na'
+date: 03/2020
+title: Cheap Sound Cards
+categories: page
+---
+
+These cheap multichannel sound cards to be had on eBay are I think quite useful for computer music /electronics experiments. The 5.1 version Shown here I got for something like $15 on eBay, shipped from Staten Island. This 5.1 version is built from the cmedia CM6206-lx the lobotomized version of the CM6206 chip which runs the 7.1 version. These chips are little black boxes, not ultimately that good for making products I'd say. Especially because the chips alone seem to me to be a bit pricey at least from the suppliers which post prices.
+<img style="width:500px;" src="/assets/cm6206-lx_2.jpg">
+
+
+What are these cards/ chips? they are usb class compliant soundcard and HID device. If you want 5.1 or 7.1 audio interface for surround? or six-o-phonic or oct-o-phonic interface with CD quality audio. its hard to argue with about $15 for the six channel version or around $35 for 8 channel version.
+
+The datasheets are on the cmedia site.
+
+I built some amps for taking the DC signals from the outputs and amplifying/shifting level of the output to be useful as modulation signals for my synthesizers. also some pre-amps for mic and line inputs to the chip.
+
+HID interface I have done using this tool <a href="https://github.com/todbot/hidapitester"> hidapitester </a> to read/write to the internal memory of the device. here you can change the registers that control whether gpio pins are digital inputs or outputs. you can read from or write to those gpio pins.
+
+Ultimately these cheap cards for me have been a tool to play with taking some things from supercollider and apply them as voltages to circuits. 
+
+<img style="width:500px;" src="/assets/cm6206-lx_1.jpg">

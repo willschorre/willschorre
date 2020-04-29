@@ -1,0 +1,99 @@
+.menu {
+	border:5px groove green;
+	display: block;
+	float:left;
+	padding:5px;
+	margin:5px;
+}
+
+hr{
+	border-bottom: 5px groove green;
+}
+
+h1 {
+    color: blue;
+}
+p {
+    color: blue;
+}
+body {
+	background-color:#002077;
+}
+
+img{
+	width:20%;
+}
+
+.container{
+	 width:90%; 
+	 margin:auto; 
+	 display:block;
+}
+
+.pagebox{
+	text-align:center; 
+	display:block; 
+	overflow: hidden;
+	margin:auto; 
+	background-color:white; 
+	width:100% - padding; 
+	padding:20px; 
+	font-family:arial; 
+	border-style:groove; 
+	border-width:20px; 
+	border-color:#4488ff;
+}
+
+.box {
+	text-align:center; 
+	display:block; 
+	overflow: hidden;
+	margin:auto; 
+	background-color:#eeae22; 
+	width:100% - padding; 
+	padding:20px; 
+	font-family:arial; 
+	border-style:groove; 
+	border-width:20px; 
+	border-color:#4488ff;
+}
+
+
+a.groovelink {
+	padding:5px;
+	border-style:groove; 
+	border-width:10px; 
+	font-size:150%; 
+	margin:20px;
+}
+
+@media only screen and (max-width: 700px) {
+
+	a.groovelink {
+	padding:5px;
+	border-style:groove; 
+	border-width:10px; 
+	font-size:100%; 
+	border-color:#4464dd; 
+	color:#4464dd;
+}
+
+img {
+	width:30%;
+}
+
+.box {
+	text-align:center; 
+	display:block; 
+	overflow: hidden;
+	margin:auto; 
+	background-color:#eeae22; 
+	width:100% - padding; 
+	padding:20px; 
+	font-family:arial; 
+	border-style:groove; 
+	border-width:10px; 
+	border-color:#4488ff;
+}
+
+}

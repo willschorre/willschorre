@@ -1,0 +1,22 @@
+---
+layout: home
+title: Homepage WS
+---
+
+<!-- <p>Select by category</p>
+<div>
+	<div style="margin:auto; display: inline-block;">
+	    <div class="menu">
+		{% for page in site.categories %}
+	          <div class="menu" > <a href="{{page.url}}">{{page.title}}</a> </div>
+	      {% endfor %}
+	      </div>
+</div>
+<p> Select from all items </p> -->
+<div style="margin:auto; display: inline-block;">
+	      {% for page in site.pages %}
+	        {% if page.display == 'ya' %}
+	          <div class="menu" > <a href="{{page.url}}">{{page.title}}</a> </div>
+	        {% endif %}
+	      {% endfor %}
+</div>
